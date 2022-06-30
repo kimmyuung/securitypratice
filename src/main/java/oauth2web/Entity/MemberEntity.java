@@ -7,12 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-@AllArgsConstructor@NoArgsConstructor
-@Getter@Setter@ToString
-@Builder
+@Entity // 엔티티로 사용
+@AllArgsConstructor@NoArgsConstructor // 모든 필드를 가진 생성자와 텅빈 필드를 가진 생성자 생성
+@Getter@Setter@ToString // 값 호출, 값 저장, 객체를 문자열로 변환
+@Builder // 빌더 사용
 public class MemberEntity {
-    @Id
+    @Id // pk 값
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int mno;
 
