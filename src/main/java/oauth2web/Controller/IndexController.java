@@ -8,18 +8,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import oauth2web.service.IndexService;
 
 @Controller
+// 컨트롤러로 사용
 public class IndexController {
 
 
     @Autowired
     IndexService indexService;
+    // 자동 객체 생성
 
-    @GetMapping("/") String main() {return "main";}
+    @GetMapping("/") String main() {return "main";} // 시작하면 요청되는 페이지에 대한 매핑
 
-    @GetMapping("/member/login") String login() {return "login";}
+    @GetMapping("/member/login") String login() {return "login";} // 로그인 페이지로 이동하는 매핑
 
-    @GetMapping("/member/signup")String signup() {return "signup";}
+    @GetMapping("/member/signup")String signup() {return "signup";} // 회원가입 페이지로 이동하는 매핑
 
     @PostMapping("/member/signupcontroller") public String signupcontroller(MemberDto memberDto)
+    // post 메소드로 실행되는 회원가입 실행에 대한 매핑
     {indexService.signup(memberDto); return "redirect:/";}
 }
