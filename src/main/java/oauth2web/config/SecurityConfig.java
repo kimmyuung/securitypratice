@@ -34,8 +34,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf()// 변조등의 해킹의 위험에 대비하여 데이터를 주고받을 페이지를 설정
                 .ignoringAntMatchers("/member/logincontroller") // 매핑된 주소에서의 사용자가 데이터를 보내고 요청하는 것은 가능
-                .ignoringAntMatchers("/member/signupcontroller");
-
+                .ignoringAntMatchers("/member/signupcontroller")
+                 .and()
+                .oauth2Login()// oauth2 관련 설정
+                .userInfoEndpoint() // 유저정보가 들어오는 위치
+                .userService(indexService); //  해당 서비스로 유저 정보 받음
 
     }
 

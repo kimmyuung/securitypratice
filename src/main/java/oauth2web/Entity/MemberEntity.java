@@ -17,4 +17,8 @@ public class MemberEntity {
     private String mpassword;
     @Enumerated(EnumType.STRING) // 열거형 객체를 문자열로 표현
     private Role role;
+
+    public String getrolekey() {  // 시큐리티에서 인증허가 된 리스트에 보관하기 위해서
+        return role.getKey();
+    }
 }
