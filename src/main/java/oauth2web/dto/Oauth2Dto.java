@@ -30,7 +30,7 @@ public class Oauth2Dto {
     }
 
     public static Oauth2Dto ofnaver(String registrationId, Map<String, Object> attributes, String nameAttributekey) {
-                                // 인수 : 플랫폼의 아이디,
+                                // 인수 : 플랫폼의 아이디, 회원들의 정보, 정보가 저장된 객체 이름
         Map<String, Object> response = (Map<String, Object>)  attributes.get(nameAttributekey); // 불러온 회원의 정보가 저장된 곳
         return Oauth2Dto.builder() // 아이디만 빌더로 사용하는 이유는 나머지는 loaduser에서 return 시 실행하기 때문
                 .mid((String) response.get("email") ) // 이메일을 아이디로 사용
